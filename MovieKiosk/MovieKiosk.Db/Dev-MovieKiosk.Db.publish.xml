@@ -13,5 +13,6 @@
     <DropExtendedPropertiesNotInSource>False</DropExtendedPropertiesNotInSource>
     <DropIndexesNotInSource>False</DropIndexesNotInSource>
     <ProfileVersionNumber>1</ProfileVersionNumber>
+    <DropObjectsNotInSource>True</DropObjectsNotInSource>
   </PropertyGroup>
 </Project>

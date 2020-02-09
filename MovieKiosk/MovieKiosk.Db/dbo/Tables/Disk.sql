@@ -1,18 +1,9 @@
 ﻿CREATE TABLE [dbo].[Disk](
-	[DiskId] [int] IDENTITY(1,1) NOT NULL,
-	[MovieId] [int] NOT NULL,
-	[DateAdded] [datetime2](7) NOT NULL CONSTRAINT [df_Disk_DateAdded]  DEFAULT (getdate()),
-PRIMARY KEY CLUSTERED 
-(
-	[DiskId] ASC
-)
+	[DiskId] [int] IDENTITY(1,1) NOT NULL constraint pk_Disk primary key clustered,
+	[MovieId] [int] NOT NULL  CONSTRAINT [fk_Disk_Movie_MovieId] FOREIGN KEY([MovieId]) REFERENCES [dbo].[Movie] ([MovieId]),
+	[DateTimeAdded] [datetime2](7) NOT NULL CONSTRAINT [df_Disk_DatTimeAdded]  DEFAULT (getdate()),
+	[DateTimeUpdated] [datetime2](7) NOT NULL CONSTRAINT [df_Disk_DatTimeUpdated]  DEFAULT (getdate()),
 )
 
 GO
 
-ALTER TABLE [dbo].[Disk]  WITH CHECK ADD  CONSTRAINT [fk_Disk_Movie_MovieId] FOREIGN KEY([MovieId])
-REFERENCES [dbo].[Movie] ([MovieId])
-GO
-
-ALTER TABLE [dbo].[Disk] CHECK CONSTRAINT [fk_Disk_Movie_MovieId]
-GO

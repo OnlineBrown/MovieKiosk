@@ -1,11 +1,7 @@
 ﻿CREATE TABLE [dbo].[Location](
-	[LocationId] [int] IDENTITY(1,1) NOT NULL,
+	[LocationId] [int] IDENTITY(1,1) NOT NULL Constraint pk_Location Primary Key clustered,
 	[LocationTypeId] [int] NULL,
 	[DateAdded] [datetime2](7) NOT NULL CONSTRAINT [df_Location_DateAdded]  DEFAULT (getdate()),
-PRIMARY KEY CLUSTERED 
-(
-	[LocationId] ASC
-) 
 )
 
 GO

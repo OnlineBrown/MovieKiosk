@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{63127b42-a1c5-4a5a-9871-d881c3dc45b4}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -71,5 +71,13 @@
     <Build Include="dbo\Tables\Movie.sql" />
     <Build Include="dbo\Tables\Transport.sql" />
     <Build Include="dbo\Tables\TransportType.sql" />
+    <Build Include="dbo\Tables\DiskLocation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MovieKiosk.Db.publish.xml" />
+    <None Include="Dev-MovieKiosk.Db.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MovieKiosk.Db.refactorlog" />
   </ItemGroup>
 </Project>
