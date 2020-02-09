@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MovieKiosk.Db", "MovieKiosk.Db\MovieKiosk.Db.sqlproj", "{63127B42-A1C5-4A5A-9871-D881C3DC45B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63127B42-A1C5-4A5A-9871-D881C3DC45B4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {094B884B-6CE3-444D-9C3D-42301A64E9A3}
+	EndGlobalSection
+EndGlobal
