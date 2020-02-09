@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>MovieKiosk</TargetDatabaseName>
+    <DeployScriptFileName>DEvMovieKiosk.Db.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=LAPTOP-TEB58I3N;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False</TargetConnectionString>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <ScriptDatabaseOptions>False</ScriptDatabaseOptions>
+    <PopulateFilesOnFileGroups>False</PopulateFilesOnFileGroups>
+    <DropDmlTriggersNotInSource>False</DropDmlTriggersNotInSource>
+    <DropConstraintsNotInSource>False</DropConstraintsNotInSource>
+    <DropExtendedPropertiesNotInSource>False</DropExtendedPropertiesNotInSource>
+    <DropIndexesNotInSource>False</DropIndexesNotInSource>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+</Project>
