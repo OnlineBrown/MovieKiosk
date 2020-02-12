@@ -4,11 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using mod = MovieKiosk.API.Models;
 
 namespace MovieKiosk.API.Controllers
 {
     public class ValuesController : ApiController
     {
+
+
+
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -35,5 +39,11 @@ namespace MovieKiosk.API.Controllers
         public void Delete(int id)
         {
         }
+
+        public List<mod.Movie> Get(string searchTerm)
+        {
+            return Data.Movies.SearchMovies(searchTerm);
+        }
+
     }
 }
