@@ -6,7 +6,7 @@
 
 GO
 
-ALTER TABLE [dbo].[Location]  WITH CHECK ADD  CONSTRAINT [fk_Location_LocationType_LocationTypeId] FOREIGN KEY([LocationTypeId])
+ALTER TABLE [dbo].[Location]   ADD  CONSTRAINT [fk_Location_LocationType_LocationTypeId] FOREIGN KEY([LocationTypeId])
 REFERENCES [dbo].[LocationType] ([LocationTypeId])
 GO
 

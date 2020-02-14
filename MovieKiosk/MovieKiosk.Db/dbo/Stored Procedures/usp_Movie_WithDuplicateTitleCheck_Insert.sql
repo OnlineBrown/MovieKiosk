@@ -1,52 +1,37 @@
-﻿CREATE Procedure [dbo].[usp_Movie_WithDuplicateTitleCheck_Insert]
-			@movieTitle varchar(250)
-           ,@movieDescription varchar(8000)
-           ,@releaseYear char(4)
-		   
-As
-
-
-declare @resultMessage varchar(100) = 'There was an error adding this entry'
-
-Begin Try
-
-If Exists (Select top 1 MovieId From [Movie] Where MovieTitle = @MovieTitle) 
-	Begin
-	
-		Set  @resultMessage  = 'This movie title already exists'
-		Select @resultMessage
-		Return
-
-	End
-
-
-
-INSERT INTO [dbo].[Movie]
-	(
-		[MovieTitle]
-		,[MovieDescription]
-		,[ReleaseYear]
-	)
-     VALUES
-	(
-		@movieTitle
-		,@movieDescription
-		,@releaseYear
-	)
-
-Set  @resultMessage  = 'Movie successfully added'
-
-Select @resultMessage
-Return
-
-End Try
-
-Begin Catch
-
-Select @resultMessage
-Return
-
-End Catch
-
-
+﻿CREATE PROCEDURE [dbo].[usp_Movie_WithDuplicateTitleCheck_Insert] @movieTitle       VARCHAR(250), 
+                                                                  @movieDescription VARCHAR(8000), 
+                                                                  @releaseYear      CHAR(4)
+AS
+     DECLARE @resultMessage VARCHAR(100)= 'There was an error adding this entry';
+    BEGIN TRY
+        IF EXISTS
+        (
+            SELECT TOP 1 MovieId
+            FROM [Movie]
+            WHERE MovieTitle = @MovieTitle
+                  AND dbo.Movie.ReleaseYear = @releaseYear
+        )
+            BEGIN
+                SET @resultMessage = 'This movie title already exists';
+                SELECT @resultMessage;
+                RETURN;
+        END;
+        INSERT INTO [dbo].[Movie]
+        ([MovieTitle], 
+         [MovieDescription], 
+         [ReleaseYear]
+        )
+        VALUES
+        (@movieTitle, 
+         @movieDescription, 
+         @releaseYear
+        );
+        SET @resultMessage = 'Movie successfully added';
+        SELECT @resultMessage;
+        RETURN;
+    END TRY
+    BEGIN CATCH
+        SELECT @resultMessage;
+        RETURN;
+    END CATCH;
 GO

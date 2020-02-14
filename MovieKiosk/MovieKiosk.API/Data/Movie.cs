@@ -14,7 +14,7 @@ namespace MovieKiosk.API.Data
     public static class Movies
     {
 
-        public static List<Models.Movie> SearchMovies(string searchTerm)
+        public static List<Models.Movie> SearchMovies(string movieTitle)
         {
 
             string conString = ConfigurationManager.ConnectionStrings["DbMovieKiosk"].ConnectionString;
@@ -26,19 +26,42 @@ namespace MovieKiosk.API.Data
                 conn.Open();
 
                 var p = new DynamicParameters();
-                p.Add("@titleSearch", searchTerm);
+                p.Add("@titleSearch", movieTitle);
 
-                //results = conn.Execute("usp_Movie_ByTitle_Search", p, commandType: CommandType.StoredProcedure);
+                
                 results = conn.Query<mod.Movie>("usp_Movie_ByTitle_Search", p, commandType: CommandType.StoredProcedure).ToList();
 
                 return results;
 
             };
+        }
+
+        public static string AddMovie(string movieTitle, string movieDescription, string releaseYear)
+        {
+            string conString = ConfigurationManager.ConnectionStrings["DbMovieKiosk"].ConnectionString;
+
+            string resultMessage = "";
+
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                conn.Open();
+
+                var p = new DynamicParameters();
+                p.Add("@movieTitle", movieTitle);
+                p.Add("@movieDescription", movieDescription);
+                p.Add("@releaseYear", releaseYear);
 
 
+                resultMessage = conn.Query<string>("dbo.usp_Movie_WithDuplicateTitleCheck_Insert", p, commandType: CommandType.StoredProcedure).First();
 
+
+                return resultMessage;
+
+            };
 
         }
+
+
 
     }
 
