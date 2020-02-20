@@ -7,45 +7,61 @@ using System.Data.SqlClient;
 using Dapper;
 using mod = MovieKiosk.API.Models;
 using System.Data;
+using System.Configuration;
 
 namespace MovieKiosk.API.Data
 {
     public static class Movies
     {
 
-        public static List<Models.Movie> SearchMovies(string searchTerm)
+        public static List<Models.Movie> SearchMovies(string movieTitle)
         {
 
-            SqlConnectionStringBuilder conString = new SqlConnectionStringBuilder()
-            {
-                DataSource = "LAPTOP-TEB58I3N",
-                InitialCatalog = "MovieKiosk",
-                IntegratedSecurity = true
-
-                //UserID = "UserName",
-                //Password = "UserPassword"
-            };
+            string conString = ConfigurationManager.ConnectionStrings["DbMovieKiosk"].ConnectionString;
 
             var results = new List<mod.Movie>();
 
-            using (SqlConnection conn = new SqlConnection(conString.ConnectionString))
+            using (SqlConnection conn = new SqlConnection(conString))
             {
                 conn.Open();
 
                 var p = new DynamicParameters();
-                p.Add("@titleSearch", "Avengers");
+                p.Add("@titleSearch", movieTitle);
 
-                //results = conn.Execute("usp_Movie_ByTitle_Search", p, commandType: CommandType.StoredProcedure);
+                
                 results = conn.Query<mod.Movie>("usp_Movie_ByTitle_Search", p, commandType: CommandType.StoredProcedure).ToList();
 
                 return results;
 
             };
+        }
+
+        public static string AddMovie(string movieTitle, string movieDescription, string releaseYear)
+        {
+            string conString = ConfigurationManager.ConnectionStrings["DbMovieKiosk"].ConnectionString;
+
+            string resultMessage = "";
+
+            using (SqlConnection conn = new SqlConnection(conString))
+            {
+                conn.Open();
+
+                var p = new DynamicParameters();
+                p.Add("@movieTitle", movieTitle);
+                p.Add("@movieDescription", movieDescription);
+                p.Add("@releaseYear", releaseYear);
 
 
+                resultMessage = conn.Query<string>("dbo.usp_Movie_WithDuplicateTitleCheck_Insert", p, commandType: CommandType.StoredProcedure).First();
 
+
+                return resultMessage;
+
+            };
 
         }
+
+
 
     }
 

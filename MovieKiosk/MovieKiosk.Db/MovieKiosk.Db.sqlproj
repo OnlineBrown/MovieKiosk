@@ -76,8 +76,8 @@
     <Build Include="dbo\Tables\Transport.sql" />
     <Build Include="dbo\Tables\TransportType.sql" />
     <Build Include="dbo\Tables\DiskLocation.sql" />
-    <Build Include="Scripts\SeedData\SeedData_Disk.sql" />
-    <Build Include="Scripts\SeedData\SeedData_Movie.sql" />
+    <None Include="Scripts\SeedData\SeedData_Disk.sql" />
+    <None Include="Scripts\SeedData\SeedData_Movie.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish\Dev-LocalTemplate-MovieKiosk.Db.publish.xml" />
