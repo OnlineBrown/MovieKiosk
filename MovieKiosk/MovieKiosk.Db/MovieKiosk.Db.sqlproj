@@ -57,25 +57,18 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="dbo" />
-    <Folder Include="dbo\Stored Procedures" />
-    <Folder Include="dbo\Tables" />
     <Folder Include="Scripts" />
     <Folder Include="Scripts\SeedData" />
     <Folder Include="Publish" />
+    <Folder Include="Schemas" />
+    <Folder Include="Schemas\dbo" />
+    <Folder Include="Schemas\dbo\Stored Procedures" />
+    <Folder Include="Schemas\dbo\Tables" />
+    <Folder Include="Schemas\Customer" />
+    <Folder Include="Schemas\Customer\Tables" />
+    <Folder Include="Schemas\Customer\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Stored Procedures\usp_Movie_ByTitle_Search.sql" />
-    <Build Include="dbo\Stored Procedures\usp_Movie_WithDuplicateTitleCheck_Insert.sql" />
-    <Build Include="dbo\Tables\CreditCardType.sql" />
-    <Build Include="dbo\Tables\Customer.sql" />
-    <Build Include="dbo\Tables\Disk.sql" />
-    <Build Include="dbo\Tables\Location.sql" />
-    <Build Include="dbo\Tables\LocationType.sql" />
-    <Build Include="dbo\Tables\Movie.sql" />
-    <Build Include="dbo\Tables\Transport.sql" />
-    <Build Include="dbo\Tables\TransportType.sql" />
-    <Build Include="dbo\Tables\DiskLocation.sql" />
     <None Include="Scripts\SeedData\SeedData_Disk.sql" />
     <None Include="Scripts\SeedData\SeedData_Movie.sql" />
   </ItemGroup>
@@ -87,5 +80,20 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MovieKiosk.Db.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\dbo\Stored Procedures\usp_Movie_ByTitle_Search.sql" />
+    <Build Include="Schemas\dbo\Stored Procedures\usp_Movie_WithDuplicateTitleCheck_Insert.sql" />
+    <Build Include="Schemas\dbo\Tables\CreditCardType.sql" />
+    <Build Include="Schemas\dbo\Tables\Disk.sql" />
+    <Build Include="Schemas\dbo\Tables\DiskLocation.sql" />
+    <Build Include="Schemas\dbo\Tables\Location.sql" />
+    <Build Include="Schemas\dbo\Tables\LocationType.sql" />
+    <Build Include="Schemas\dbo\Tables\Movie.sql" />
+    <Build Include="Schemas\dbo\Tables\Transport.sql" />
+    <Build Include="Schemas\dbo\Tables\TransportType.sql" />
+    <Build Include="Schemas\Customer\Tables\Customer.sql" />
+    <Build Include="Schemas\Customer\Stored Procedures\uspAddCustomer.sql" />
+    <Build Include="Schemas\Customer.sql" />
   </ItemGroup>
 </Project>
