@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Movie Search Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+        <h3><b>Search for a movie</b></h3>
+        <form action="MovieSearch" method="post">
+
+            <table>
+                <tr>
+                    <td>Enter movie title</td>
+                    <td><input type="text" name="txtMovieTitleSearch" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Search" /></td>
+                </tr>
+            </table>
+
+        </form>
+
+    </div>
+</body>
+</html>
