@@ -20,6 +20,7 @@ namespace Movie.App.Controllers
         [HttpPost]
         public ActionResult MovieSearch(string txtMovieTitleSearch)
         {
+            Logic.Movie.SearchMovies(txtMovieTitleSearch);
 
 
             return View();
