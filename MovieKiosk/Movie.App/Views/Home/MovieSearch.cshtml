@@ -1,7 +1,10 @@
-﻿@{
+﻿@using Movie.App.Logic
+@model List<Movie.App.Logic.MovieInfo>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Movie Search Page";
 }
+
 
 <!DOCTYPE html>
 
@@ -27,6 +30,49 @@
             </table>
 
         </form>
+
+        <h2>Movies</h2>
+
+        <table>
+
+            <tr>
+
+                <th>
+
+                    Html.DisplayNameFor(model.MovieTitle)
+
+                </th>
+
+                <th>
+
+                    Html.DisplayNameFormodel.ReleaseYear)
+
+                </th>
+
+            </tr>
+
+
+            <% foreach (var item in Model) { %>
+            <tr>
+
+                <td>
+
+                    <%= Html.DisplayFor(modelItem => item.MovieTitle) %>
+
+                </td>
+
+                <td>
+
+                    <%= Html.DisplayFor(modelItem => item.ReleaseYear) %>
+
+                </td>
+
+            </tr>
+
+            }
+
+        </table>
+
 
     </div>
 </body>
