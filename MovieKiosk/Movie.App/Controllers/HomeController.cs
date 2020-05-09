@@ -17,11 +17,13 @@ namespace Movie.App.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult MovieSearch(string txtMovieTitleSearch)
         {
             //Logic.Movie.SearchMovies(txtMovieTitleSearch);
-            return View(Logic.MovieInfo.SearchMovies(txtMovieTitleSearch));
+            //return View(Logic.MovieInfo.SearchMovies(txtMovieTitleSearch));
+            return View("MovieSearchResults", Logic.MovieInfo.SearchMovies(txtMovieTitleSearch));
         }
 
         public ActionResult About()
