@@ -67,10 +67,14 @@
     <Folder Include="Schemas\Customer" />
     <Folder Include="Schemas\Customer\Tables" />
     <Folder Include="Schemas\Customer\Stored Procedures" />
+    <Folder Include="Schemas\Movie" />
+    <Folder Include="Schemas\Movie\Stored Procedures" />
+    <Folder Include="Schemas\Movie\Tables" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\SeedData\SeedData_Disk.sql" />
     <None Include="Scripts\SeedData\SeedData_Movie.sql" />
+    <None Include="Publish\Dev-Local-MovieKiosk.Db.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Publish\Dev-LocalTemplate-MovieKiosk.Db.publish.xml" />
@@ -95,5 +99,7 @@
     <Build Include="Schemas\Customer\Tables\Customer.sql" />
     <Build Include="Schemas\Customer\Stored Procedures\uspAddCustomer.sql" />
     <Build Include="Schemas\Customer.sql" />
+    <Build Include="Schemas\Movie.sql" />
+    <Build Include="Schemas\dbo\Stored Procedures\usp_Movie_Update.sql" />
   </ItemGroup>
 </Project>

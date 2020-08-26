@@ -6,13 +6,14 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Configuration;
+using System.Text;
 
 namespace Movie.App.Logic
 {
     public class MovieInfo
     {
         public string MovieTitle { get; set; }
-        public string Description { get; set; }
+        public string MovieDescription { get; set; }
         public string ReleaseYear { get; set; }
 
         public static List<MovieInfo> SearchMovies (string searchTitle)
@@ -40,6 +41,48 @@ namespace Movie.App.Logic
             return movieList;
 
         }
+
+
+        public static string AddMovie(MovieInfo movie)
+        {
+
+            var client = new HttpClient();
+
+            var request = new HttpRequestMessage(HttpMethod.Post, ConfigurationManager.AppSettings["MovieKioskApiSearchMovieBaseUrl"]);
+
+            var json = JsonConvert.SerializeObject(movie);
+
+            var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            request.Content = stringContent;
+
+            var response = client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+
+             return "completed";
+
+        }
+
+
+        //public static string AddMovie(MovieInfo movie)
+        //{
+
+        //    HttpClient client = new HttpClient();
+        //    client.BaseAddress = new Uri(ConfigurationManager.AppSettings["MovieKioskApiSearchMovieBaseUrl"]);
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //    var content = new StringContent(JsonConvert.SerializeObject(movie));
+
+        //    content.Headers.ContentType.MediaType = "application/json";
+
+        //    HttpResponseMessage response = client.PostAsync(client.BaseAddress.ToString(), content).Result;
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        return "Success";
+        //    }
+        //    return "There was an error adding this movie";
+
+        //}
 
 
     }

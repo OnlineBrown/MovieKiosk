@@ -1,10 +1,19 @@
-﻿CREATE Procedure [dbo].[usp_Movie_ByTitle_Search]
-	@titleSearch varchar(255)
-
-As
-
-Select 
-	*
-From [Movie]
-Where MovieTitle like '%' + @titleSearch + '%'
+﻿CREATE PROCEDURE [dbo].[usp_Movie_ByTitle_Search]
+     @titleSearch VARCHAR(255)
+AS
+     IF @titleSearch IS NULL
+         BEGIN
+             SELECT
+                *
+             FROM
+                  [Movie];
+        END;
+         ELSE
+         BEGIN
+             SELECT
+                *
+             FROM
+                  [Movie]
+             WHERE MovieTitle LIKE '%' + @titleSearch + '%';
+     END;
 GO

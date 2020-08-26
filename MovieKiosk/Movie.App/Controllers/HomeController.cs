@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Movie.App.Logic;
 
 namespace Movie.App.Controllers
 {
@@ -24,6 +25,18 @@ namespace Movie.App.Controllers
             //Logic.Movie.SearchMovies(txtMovieTitleSearch);
             //return View(Logic.MovieInfo.SearchMovies(txtMovieTitleSearch));
             return View("MovieSearchResults", Logic.MovieInfo.SearchMovies(txtMovieTitleSearch));
+        }
+        
+        public ActionResult MovieAdd()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MovieAdd(MovieInfo movie)
+        {
+            Logic.MovieInfo.AddMovie(movie);
+            return View("MovieSearchResults", Logic.MovieInfo.SearchMovies(movie.MovieTitle.ToString()));
         }
 
         public ActionResult About()

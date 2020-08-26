@@ -269,10 +269,12 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\MovieSearch.cshtml" />
     <Content Include="Views\Home\MovieSearchResults.cshtml" />
+    <Content Include="Views\Home\MovieAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Movie\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

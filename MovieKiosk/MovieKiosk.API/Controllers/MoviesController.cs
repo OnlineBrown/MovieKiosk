@@ -19,37 +19,11 @@ namespace MovieKiosk.API.Controllers
         }
 
         // POST api/<controller>
-        public string Post(string movieTitle, string movieDescription, string releaseYear)
+        public string Post(mod.Movie movie)
         {
-            return Data.Movies.AddMovie(movieTitle, movieDescription, releaseYear);
+            return Data.Movies.AddMovie(movie.MovieTitle, movie.MovieDescription, movie.ReleaseYear);
         }
 
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
     }
 }

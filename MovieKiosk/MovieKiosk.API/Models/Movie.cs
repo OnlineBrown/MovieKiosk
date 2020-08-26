@@ -8,6 +8,7 @@ namespace MovieKiosk.API.Models
     public class Movie
     {
         public string MovieTitle { get; set; }
+        public string MovieDescription { get; set; }
         public string ReleaseYear { get; set; }
     }
 }

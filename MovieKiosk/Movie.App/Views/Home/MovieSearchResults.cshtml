@@ -8,7 +8,7 @@
 <h2>Search Results</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Movie", "MovieAdd")
 </p>
 <table class="table">
     <tr>
@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.MovieTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.MovieDescription)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ReleaseYear)
@@ -30,7 +30,7 @@
             @Html.DisplayFor(modelItem => item.MovieTitle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.MovieDescription)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReleaseYear)
@@ -39,7 +39,6 @@
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-
         </td>
     </tr>
 }
