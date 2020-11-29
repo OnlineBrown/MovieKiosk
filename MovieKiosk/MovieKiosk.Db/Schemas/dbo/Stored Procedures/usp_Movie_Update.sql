@@ -11,3 +11,13 @@ AS
           ,ReleaseYear=ISNULL(@releaseYear ,ReleaseYear)
      WHERE
         [dbo].[Movie].MovieId = @movieId;
+
+        --Return Updated Data
+        Select 
+            MovieTitle
+            , MovieDescription
+            , ReleaseYear
+        from dbo.Movie
+        WHERE
+            MovieId = @movieId;
+            

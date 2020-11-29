@@ -18,11 +18,22 @@ namespace MovieKiosk.API.Controllers
             return Data.Movies.SearchMovies(movieTitle);
         }
 
+        public List<mod.Movie> Get(int movieId)
+        {
+            return Data.Movies.GetMovie(movieId);
+        }
+
         // POST api/<controller>
         public string Post(mod.Movie movie)
         {
             return Data.Movies.AddMovie(movie.MovieTitle, movie.MovieDescription, movie.ReleaseYear);
         }
+
+        //Put api/<controller>
+        //public mod.Customer Put(int movieId)
+        //{
+        //    return Data.Movies.
+        //}
 
 
     }

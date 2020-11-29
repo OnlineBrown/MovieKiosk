@@ -101,5 +101,6 @@
     <Build Include="Schemas\Customer.sql" />
     <Build Include="Schemas\Movie.sql" />
     <Build Include="Schemas\dbo\Stored Procedures\usp_Movie_Update.sql" />
+    <Build Include="Schemas\dbo\Stored Procedures\usp_Movie_ById_Get.sql" />
   </ItemGroup>
 </Project>
