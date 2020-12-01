@@ -270,6 +270,7 @@
     <Content Include="Views\Home\MovieSearch.cshtml" />
     <Content Include="Views\Home\MovieSearchResults.cshtml" />
     <Content Include="Views\Home\MovieAdd.cshtml" />
+    <Content Include="Views\Home\MovieEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

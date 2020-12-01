@@ -39,6 +39,19 @@ namespace Movie.App.Controllers
             return View("MovieSearchResults", Logic.MovieInfo.SearchMovies(movie.MovieTitle.ToString()));
         }
 
+        public ActionResult MovieEdit(int movieId)
+        {
+           MovieInfo movie =  Logic.MovieInfo.GetMovie(movieId);
+            return View(movie);
+        }
+
+        public ActionResult MovieUpdate(Movie.App.Logic.MovieInfo movie)
+        {
+            return null;
+        }
+
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

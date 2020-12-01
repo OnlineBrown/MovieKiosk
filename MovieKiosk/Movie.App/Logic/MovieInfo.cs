@@ -12,6 +12,7 @@ namespace Movie.App.Logic
 {
     public class MovieInfo
     {
+        public int MovieId { get; set; }
         public string MovieTitle { get; set; }
         public string MovieDescription { get; set; }
         public string ReleaseYear { get; set; }
@@ -40,6 +41,33 @@ namespace Movie.App.Logic
 
             return movieList;
 
+        }
+
+
+        public static MovieInfo GetMovie (int movieId)
+        {
+            //prepare httpclient variable
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings["MovieKioskApiSearchMovieBaseUrl"]);
+            string urlParameters = string.Concat(ConfigurationManager.AppSettings["MovieKioskApiGetMovieUrlParams"], movieId);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            //data response
+            HttpResponseMessage response = client.GetAsync(urlParameters).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+
+            //List<MovieInfo> movieList = new List<MovieInfo>();
+            List<MovieInfo> movie = new List<MovieInfo>();
+
+            if (response.IsSuccessStatusCode)
+            {
+
+                var data = response.Content.ReadAsStringAsync();
+                movie = JsonConvert.DeserializeObject<List<MovieInfo>>(data.Result);
+                return movie.First<MovieInfo>();
+
+            }
+
+            return movie.First<MovieInfo>();
         }
 
 
